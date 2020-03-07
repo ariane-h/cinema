@@ -44,6 +44,15 @@ class Film
     return result
   end
 
+  def tickets_sold
+    sql = "SELECT films.* FROM films
+            INNER JOIN tickets ON films.id = tickets.film_id
+            WHERE film_id = $1"
+    values = [@id]
+    tickets_sold = SqlRunner.run(sql, values)
+    return tickets_sold.count
+  end
+
   def self.all
     sql = "SELECT * FROM films"
     SqlRunner.run(sql)

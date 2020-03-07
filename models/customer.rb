@@ -45,6 +45,21 @@ class Customer
     return result
   end
 
+  def buy_ticket(film)
+    @funds -= film.price
+    new_ticket = Ticket.new({'customer_id' => self.id, 'film_id' => film.id})
+    new_ticket.save
+  end
+
+  def ticket_count
+    sql = "SELECT customers.* FROM customers
+          INNER JOIN tickets ON customers.id = tickets.customer_id
+          WHERE customer_id = $1"
+    values = [@id]
+    tickets = SqlRunner.run(sql, values)
+    return tickets.count
+  end
+
   def self.all
     sql = "SELECT * FROM customers"
     SqlRunner.run(sql)
