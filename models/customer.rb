@@ -45,9 +45,9 @@ class Customer
     return result
   end
 
-  def buy_ticket(film)
+  def buy_ticket(film, screening)
     @funds -= film.price
-    new_ticket = Ticket.new({'customer_id' => self.id, 'film_id' => film.id})
+    new_ticket = Ticket.new({'customer_id' => self.id, 'film_id' => film.id, 'screening_id' => screening.id})
     new_ticket.save
   end
 

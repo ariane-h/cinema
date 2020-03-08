@@ -6,8 +6,8 @@ require_relative('./models/screening.rb')
 
 require('pry-byebug')
 
-Screening.delete_all
 Ticket.delete_all
+Screening.delete_all
 Film.delete_all
 Customer.delete_all
 
@@ -42,18 +42,31 @@ film2.save
 film3 = Film.new({'title' => 'Chaser', 'price' => 6})
 film3.save
 
-#tickets
-customer1.buy_ticket(film1)
-customer2.buy_ticket(film1)
-customer3.buy_ticket(film1)
-
 #Screenings
 
 screening1 = Screening.new({'film_id' => film1.id, 'showtime' => '21:00'})
 screening1.save
 
-screening2 = Screening.new({'film_id' => film2.id, 'showtime' => '16:00'})
+screening2 = Screening.new({'film_id' => film1.id, 'showtime' => '23:15'})
 screening2.save
+
+screening3 = Screening.new({'film_id' => film2.id, 'showtime' => '16:00'})
+screening3.save
+
+#tickets for film one, screening one
+customer1.buy_ticket(film1, screening1)
+customer1.buy_ticket(film1, screening1)
+customer2.buy_ticket(film1, screening1)
+customer3.buy_ticket(film1, screening1)
+
+#tickets for film one, late showing
+customer2.buy_ticket(film1, screening3)
+customer3.buy_ticket(film1, screening3)
+
+#tickets for screening film two, screening two
+customer1.buy_ticket(film2, screening2)
+customer3.buy_ticket(film2, screening2)
+customer2.buy_ticket(film2, screening2)
 
 binding.pry
 nil
