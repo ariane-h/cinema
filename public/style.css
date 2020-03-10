@@ -1,0 +1,23 @@
+body {
+  background-color: salmon;
+}
+
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  text-transform: lowercase;
+  font-size: 70px;
+  color: white;
+  text-decoration: underline;
+}
+
+h2 {
+  color: #69585F;
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: #69585F;
+}

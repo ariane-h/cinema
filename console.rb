@@ -68,5 +68,7 @@ customer1.buy_ticket(film2, screening2)
 customer3.buy_ticket(film2, screening2)
 customer2.buy_ticket(film2, screening2)
 
+
+
 binding.pry
 nil

@@ -5,13 +5,13 @@
     <title>CodeClan Cinema</title>
   </head>
   <body>
-    <h1>Currently Showing</h1>
-    <%list = Film.all.map {|film| Film.new(film)}%>
-    <%@films = list.map {|film| film.title}%>
+    <h1 class="title">Currently Showing</h1>
     <h2>
-      <ul><%= @films[0] %></ul>
-      <ul><%= @films[1] %></ul>
-      <ul><%= @films[2] %></ul>
+      <div class="list">
+      <ul><a href="films/details/1"><%= @film1.title %></a></ul>
+      <ul><a href="films/details/2"><%= @film2.title %></a></ul>
+      <ul><a href="films/details/3"><%= @film3.title %></a></ul>
+      </div>
     </h2>
 
   </body>
