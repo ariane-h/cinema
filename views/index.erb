@@ -1,7 +1,18 @@
-<h1>There's always money in the banana stand</h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CodeClan Cinema</title>
+  </head>
+  <body>
+    <h1>Currently Showing</h1>
+    <%list = Film.all.map {|film| Film.new(film)}%>
+    <%@films = list.map {|film| film.title}%>
+    <h2>
+      <ul><%= @films[0] %></ul>
+      <ul><%= @films[1] %></ul>
+      <ul><%= @films[2] %></ul>
+    </h2>
 
-<h2>Here's my films
-<% @films.each do |title| puts %>
-  <%= title %>
-<% end %>
-</h2>
+  </body>
+</html>
