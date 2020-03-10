@@ -55,17 +55,17 @@ class Film
 
   #extension attempt, want to return showtime
 
-  # def screening_with_most_tickets_sold
-  #   sql = "SELECT COUNT(tickets.id), tickets.screening_id
-  #         FROM screenings
-  #         INNER JOIN tickets ON screenings.film_id = tickets.film_id
-  #         WHERE screenings.film_id = $1
-  #         GROUP BY tickets.screening_id
-  #         ORDER BY COUNT(tickets.id) DESC;"
-  #   values = [@id]
-  #   result = SqlRunner.run(sql, values).first
-  #   return result
-  # end
+  def screening_with_most_tickets_sold
+    sql = "SELECT COUNT(tickets.id), tickets.screening_id
+          FROM screenings
+          INNER JOIN tickets ON screenings.film_id = tickets.film_id
+          WHERE screenings.film_id = $1
+          GROUP BY tickets.screening_id
+          ORDER BY COUNT(tickets.id) DESC;"
+    values = [@id]
+    result = SqlRunner.run(sql, values).first
+    return result
+  end
 
   def self.all
     sql = "SELECT * FROM films"
