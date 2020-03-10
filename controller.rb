@@ -6,6 +6,6 @@ also_reload('.models/*')
 
 get '/films' do
   list = Film.all.map {|film| Film.new(film)}
-  @films = list.map {|film| film.title} 
+  @films = list.map {|film| film.title}
   erb(:index)
 end
